@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.baby.Dao.client.IStudent">
+    <resultMap type="StudentDo" id="studentResultMap">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="sex" column="sex"/>
+    </resultMap>
+
+
+    <select id="GetStudents" resultMap="studentResultMap">
+        <![CDATA[
+            SELECT * from student
+        ]]>
+    </select>
+    <insert id="InsertStudent" parameterType="StudentDo" useGeneratedKeys="true" keyProperty="id">
+        insert INTO Student(name,sex) VALUES (#{name},#{sex})
+    </insert>
+</mapper>
