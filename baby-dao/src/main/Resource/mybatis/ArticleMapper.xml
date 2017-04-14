@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.baby.Dao.client.IArticle">
+    <resultMap type="ArticleDo" id="articleResultMap">
+        <id property="id" column="Id"/>
+        <result property="articlename" column="ArticleName"/>
+        <result property="creator" column="Creator"/>
+        <result property="articlecontent" column="ArticleContent"/>
+        <result property="createdate" column="CreateDate"/>
+    </resultMap>
+
+
+    <select id="GetArticles" parameterType="String" resultMap="articleResultMap">
+        <![CDATA[
+            SELECT * from Article WHERE  Creator = #{creator}
+        ]]>
+    </select>
+    <insert id="InsertArticle" parameterType="ArticleDo" useGeneratedKeys="true" keyProperty="id">
+        insert INTO Article(ArticleName,ArticleContent,Creator) VALUES (#{articlename},#{articlecontent},#{creator})
+    </insert>
+</mapper>

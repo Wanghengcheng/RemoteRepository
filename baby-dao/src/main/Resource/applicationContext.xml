@@ -54,5 +54,9 @@
         <!--注入SqlSessionTemplate实例 -->
         <property name="sqlSessionTemplate" ref="sqlSession" />
     </bean>
+    <bean id="articleDao" class="com.baby.Dao.impl.ArticleImp">
+        <!--注入SqlSessionTemplate实例 -->
+        <property name="sqlSessionTemplate" ref="sqlSession" />
+    </bean>
     <!--<import resource="classpath:mybatis/mybatis_base_sqlmap.xml" />-->
 </beans>

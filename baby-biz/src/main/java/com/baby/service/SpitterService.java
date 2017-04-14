@@ -28,13 +28,13 @@ public class SpitterService {
     }
     public static List<StudentDo> getRecentSpitters()throws Exception {
         IStudent studentDao = new StudentImp();
-        getConnection();
+//        getConnection();
         return studentDao.GetStudents();
     }
 
     public static int insertStudent(StudentDo studentDo)throws Exception {
         IStudent studentDao = new StudentImp();
-        String temp= jedis.get("hello");
+//        String temp= jedis.get("hello");
         return studentDao.InsertStudent(studentDo);
     }
 
